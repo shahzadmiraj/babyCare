@@ -4,14 +4,14 @@ let video;
 let poseNet;
 let poses = [];
 let accuracy = 50;
-let screenWidth = 1400;
-let ScreeHeight = 1000;
+let screenWidth = 1300;
+let ScreeHeight = 640;
 function setup() {
-  createCanvas(screenWidth, ScreeHeight);//createCanvas(640, 480);
+  createCanvas(1300, 640);//createCanvas(640, 480);
 
-  video = createVideo('../assets/momwithbaby.mp4'); //createCapture(VIDEO);
+  video =createCapture(VIDEO); //createVideo('../assets/momwithbaby.mp4'); //createCapture(VIDEO);
   video.volume(0);
-  //video.size(width, height);
+  video.size(width, height);
 
   // Create a new poseNet method with a multiple detection
   poseNet = ml5.poseNet(video, 'multiple', modelReady);
@@ -69,7 +69,7 @@ function draw() {
   pop();
 }
 function drawSqaure(maxPerson) {
-  stroke(0, 0, 255);
+  stroke(255, 0, 0);
   noFill();
   let d = dist(maxPerson.nose.x, maxPerson.nose.y, maxPerson.rightWrist.x, maxPerson.rightWrist.y);
   
