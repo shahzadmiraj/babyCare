@@ -13,9 +13,9 @@ var PoseAccuracyScore = 50;
 function setup() {
   //createCanvas(0, 0);
   createCanvas(1400, 1000);
-  video = createVideo('assets/momwithbaby.mp4');
+  video = createCapture(VIDEO);//createVideo('assets/momwithbaby.mp4');
   video.volume(0);
-  //video.size(1000, 1000);
+  video.size(width, height);
   video.loop();
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
